@@ -1,0 +1,11 @@
+.logo {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  &--small {
+    max-width: 115px;
+  }
+  &--medium {
+    max-width: 250px;
+  }
+}

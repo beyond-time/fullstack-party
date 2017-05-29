@@ -1,0 +1,19 @@
+.well {
+  min-height: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  &__head {
+    padding: 30px;
+    margin: -30px -30px 0 -30px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  &__body {
+    padding-top: 30px;
+    font-weight: 300;
+    line-height: 20px;
+    color: #666666;
+  }
+}

@@ -1,0 +1,36 @@
+$button-main-color: #9fd533;
+$button-main-color-hover: #86b300;
+$button-main-text-color: #fff;
+$button-main-text-size: 16px;
+
+$button-navigation-color: #2f3254;
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+  &--main {
+    border-radius: 3px;
+    background-color: $button-main-color;
+    color: $button-main-text-color;
+    font-size: $button-main-text-size;
+    font-weight: 700;
+    line-height: 46px;
+    padding: 0 115px;
+    transition: background-color 300ms ease-in-out;
+    &:hover, &:focus {
+      color: $button-main-text-color;
+      background-color: $button-main-color-hover;
+    }
+  }
+  &--navigation {
+    color: $button-navigation-color;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 10px;
+  }
+}

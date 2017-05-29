@@ -1,0 +1,11 @@
+$background-color: #0b0f27;
+
+html,
+body {
+  height: 100%;
+}
+
+.hero-image {
+  background: url("/assets/images/background.png") $background-color;
+  min-height: 100%;
+}

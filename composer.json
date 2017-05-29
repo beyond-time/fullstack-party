@@ -1,0 +1,19 @@
+{
+  "require": {
+    "php": ">=5.5.0",
+    "slim/slim": "^3.1",
+    "slim/php-view": "^2.0",
+    "monolog/monolog": "^1.17",
+    "guzzlehttp/guzzle": "^6.2",
+    "slim/twig-view": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "GitHub\\": "src/classes/GitHub",
+      "GitHub\\Helpers\\": "src/classes/GitHub/Helpers"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": "npm i && npm run build"
+  }
+}

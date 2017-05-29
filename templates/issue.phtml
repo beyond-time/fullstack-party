@@ -1,0 +1,30 @@
+<div class="col-md-8 col-md-offset-2">
+    <div class="container-fluid">
+        <a style="padding: 30px 0 30px;display: block;" class="testio-back" href="<?= $back_url ?>"> Back to issues</a>
+        <div class="well">
+            <div>
+                <?= $issue->title ?> #<?= $issue->number ?>
+            </div>
+            <span style="color: #9fd533;" class="testio-<?php if($issue->state === 'open'):?>exclamation">OPEN<?php else: ?>check">CLOSED<?php endif; ?></span>
+            <a href="<?= $issue->user->html_url ?>"><?= $issue->user->login ?></a> opened this
+            issue <?= \GitHub\Helpers\Template::formatDate($issue->created_at) ?><?php if($issue->comments): ?> ‐ <?= $issue->comments ?><?php endif; ?>
+            comment<?php if ($issue->comments !== 1): ?>s<?php endif; ?>
+        </div>
+        <?php foreach ($comments as $comment): ?>
+            <div>
+                <div>
+                    <img class="user-picture" src="<?= $comment->user->avatar_url ?>">
+                </div>
+                <div class="well">
+                    <header class="well__head">
+                        <a href="<?= $comment->user->html_url ?>"><?= $comment->user->login ?></a>
+                        commented <?= \GitHub\Helpers\Template::formatDate($comment->created_at) ?>
+                    </header>
+                    <div class="well__body">
+                        <?= $comment->body ?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

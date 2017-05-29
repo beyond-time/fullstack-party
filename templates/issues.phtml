@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="ta-c" style="padding: 25px 0 25px;">
+                <span class="testio-exclamation"> <?= $open ?> Open </span>
+                <span class="testio-check"> <?= $closed ?> Closed</span>
+            </div>
+            <?php foreach ($issues as $issue): ?>
+                <div class="well">
+                    <div>
+                        <span style="color: #9fd533;" class="testio-<?php if($issue->state === 'open'):?>exclamation<?php else: ?>check<?php endif; ?>"></span>
+                        <a href="<?= \GitHub\Helpers\Template::formatIssueUrl($issue->url) ?>"><?= $issue->title ?></a>
+                        <?php foreach ($issue->labels as $label): ?>
+                            <span class="label" style="background-color:#<?= $label->color ?>"><?= $label->name ?></span>
+                        <?php endforeach; ?>
+                        <?php if ($issue->comments): ?>
+                            <a href="<?= \GitHub\Helpers\Template::formatIssueUrl($issue->url) ?>" style="float: right;"><span class="testio-bubble"></span> <?= $issue->comments ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <div style="font-size: 12px;padding-top: 8px;">
+                        #<?= $issue->number ?> opened <?= \GitHub\Helpers\Template::formatDate($issue->created_at) ?> by <a
+                                href="<?= $issue->user->html_url ?>"><?= $issue->user->login ?></a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            <div class="ta-c">
+                <div class="pager">
+                    <?= \GitHub\Helpers\Template::generatePagination($pages, $index) ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="issue-list-picture"></div>
+        </div>
+    </div>
+</div>
